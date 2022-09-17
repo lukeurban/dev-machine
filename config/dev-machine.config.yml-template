@@ -1,0 +1,9 @@
+version: 0.0.1
+dev_machine:
+  volume_size: 15G
+  memory_size: 15G
+  cores: 6
+  os_image: /Users/luke/.dev-machine/image/debian.iso
+  file_butler_directory:  /Users/luke/dev-machine
+system:
+  user: luke

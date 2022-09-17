@@ -1,0 +1,4 @@
+discs/
+image/
+tmp/*
+.DS_Store

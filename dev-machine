@@ -1,0 +1,54 @@
+#!/bin/bash
+
+source ~/.dev-machine/src/init.sh
+
+help() {
+    _help ""
+}
+update_doc="Self update method"
+update() {
+    _logo
+    _print_style "Updating dev-machine tools...\n" "info"
+    cd ~/.dev-machine/ && git pull
+}
+
+start_doc="Start dev VM"
+start() {
+     ~/.dev-machine/src/qemu.sh start
+}
+
+stop_doc="Start dev VM"
+stop() {
+     ~/.dev-machine/src/qemu.sh shutdown
+}
+
+connect_doc="Connect dev VM"
+connect() {
+     ~/.dev-machine/src/qemu.sh connect
+}
+
+c_doc="Short for connect to dev VM"
+c() {
+     ~/.dev-machine/src/qemu.sh connect
+}
+
+vm_doc="All VM tools"
+vm() {
+    ~/.dev-machine/src/qemu.sh "$@"
+}
+
+network_doc="Host <-> VM network tools"
+network() {
+    ~/.dev-machine/src/network.sh "$@"
+}
+
+_dev() {
+    ~/.dev-machine/src/dev.sh "$@"
+}
+
+if ! [ -z $1 ]; then
+    _run $1 $@
+else
+    _header
+    help
+fi
